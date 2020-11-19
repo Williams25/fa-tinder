@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-.editar-form form .button-content a:hover {
+.editar-form form .button-content a:hover,
+.editar-form form .button-content button:hover {
   background-color: #FC824A;
 }
 
@@ -10,7 +11,8 @@
   width: 100%;
 }
 
-.editar-form form .button-content a {
+.editar-form form .button-content a,
+.editar-form form .button-content button {
   text-decoration: none;
   width: 8rem;
   height: 2rem;
@@ -92,6 +94,20 @@
   width: 100%;
   margin-bottom: 5px;
   margin-top: 40px;
+}
+
+.images-container {
+  width: 100%;
+  height: 100px;
+}
+
+.images-container img {
+  width: 20%;
+  border-radius: 5px;
+}
+
+.editar-form  form input[type=file] {
+  visibility: hidden;
 }
 
 @media (min-width: 880px) {
