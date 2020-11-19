@@ -1,0 +1,9 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 3%;
+  max-height: 22rem;
+  overflow: auto;
+  white-space: hidden;
+}
