@@ -1,22 +1,45 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
-import './index.css'
+import { Button, Image } from 'react-bootstrap'
+import ModalPerfil from '../ModalPerfil'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Matchs from '../../services/match'
+import './card.css'
 
-const Card = props => {
-  const history = useHistory()
-  
-  const hanldlePerfile = () => history.push('/ver-perfil')
-  // 
+const Card = ({data, id_usuario, color}) => {
+
+  const createMatch = body => {
+    Matchs.createMatch(body).then(res => {
+
+    }).catch(err => console.error(err))
+  }
+
+  const apagarMatch = id => {
+    Matchs.desfazer(id).then(res => {
+
+    }).catch(err => console.error(err))
+  }
+
   return (
     <div className="container-card">
       <div className="item-card">
         <div className="img-card">
-          <img src="https://conteudo.imguol.com.br/c/noticias/f1/2019/11/02/a-nasa-elegeu-como-foto-astronomica-do-dia-em-22-de-outubro-esta-imagem-da-via-lactea-capturada-por-jheison-huerta-no-salar-de-uyuni-na-bolivia-1572723035380_v2_976x549.jpg" alt="" />
+          <Image src={data.imagem.url} rounded fluid />
         </div>
-        <h3>Nome</h3>
+        <span>{data.nome}</span>
+        <span>{data.cidade}</span>
         <div className="button">
-          <button>Match</button>
-          <button onClick={hanldlePerfile}>Ver Perfil</button>
+          <Button variant={color} onClick={() => {
+            if(color === 'warning') {
+                // eslint-disable-next-line
+              if(confirm('Metch com '+ data.nome)) createMatch({id_usuario: id_usuario, id_match: data.id})
+            } else {
+              // eslint-disable-next-line
+              if(confirm('Desfazer metch com '+ data.nome)) {
+                apagarMatch(data.match)
+              }
+            }
+          }}>Match</Button>
+          <ModalPerfil data={data} />
         </div>
       </div>
     </div>

@@ -1,0 +1,43 @@
+form, form .images-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+form input[type=file] {
+  visibility: hidden;
+}
+form label {
+  color: #000;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 8px;
+}
+form input {
+  outline: none;
+  border: none;
+  background: none;
+  color: #000;
+  border-bottom: 1px solid #000;
+  font-size: 1.2rem;
+  width: 80%;
+  text-align: center;
+}
+form textarea {
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 120px;
+  max-height: 240px;
+  resize: vertical;
+  padding: 16px;
+  line-height: 28px;
+  outline: none;
+  background-color: transparent;
+  color: #000;
+  border-radius: 10px;
+}
+form .images-container img {
+  margin-top: 10px;
+  max-width: 40%;
+  border-radius: 5px;
+}

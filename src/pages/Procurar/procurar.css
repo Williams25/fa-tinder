@@ -4,32 +4,34 @@ body {
 
 .container-home {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-direction: column;
+  flex-wrap: wrap;
   width: 100%;
 }
 
 .container-profile {
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
-
-.profile {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  text-align: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .profile .img-profile {
-  margin: 2rem;
+  width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  margin: 2rem;
 }
 
 .profile .img-profile .info {
@@ -40,12 +42,12 @@ body {
 }
 
 .profile .img-profile img {
-  width: 50%;
-  height: 100%;
+  width: 180px;
+  height: 180px;
   border-radius: 5px;
 }
 
-.profile .img-profile .info button {
+/* .profile .img-profile .info button {
   width: 8rem;
   height: 2rem;
   outline: none;
@@ -58,13 +60,34 @@ body {
   margin: 2px;
   cursor: pointer;
   transition: background-color 0.8s;
-}
-.busca {
+} */
+
+.subtitle {
   display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.subtitle span {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.busca {
+  width: 100%;
+  display: flex;
+  justify-content: center;
   flex-direction: row;
 }
+.busca div {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 30%;
+}
+
 .busca input {
-  width: 100%;
+  width: 90rem;
   text-align: center;
   border: none;
   border-bottom: 1px solid black;

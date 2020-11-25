@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-.form form .button-content a:hover {
+.form form .button-content a:hover,
+.form form .button-content button:hover {
   background-color: #FC824A;
 }
 
-.form form .button-content a {
+.form form .button-content a,
+.form form .button-content button {
   text-decoration: none;
   width: 8rem;
   height: 2rem;
@@ -86,7 +88,12 @@
   width: 100%;
   margin-bottom: 5px;
 }
-
+div.erro span {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
 @media (min-width: 880px) {
   .form {
     width: 48vw;

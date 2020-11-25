@@ -1,7 +1,7 @@
-import Axios from 'axios'
+import axios from 'axios'
 
-const http = Axios.create({
-  baseURL: 'http://http://192.168.1.9:3333',
+export const http = axios.create({
+  baseURL: 'http://192.168.1.11:3333',
 })
 
-export default http
+// export default http

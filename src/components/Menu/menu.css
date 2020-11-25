@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 .container-menu {
+  width: 100%;
   background-color: #FA4224;
-  width: 10rem;
-  height: 100vh;
+  height: 100px;
   display: flex;
   justify-content: center;
   text-align: center;
 }
 .container-menu span {
   margin-top: 20px;
+  margin-right: 10px;
   color: #fff;
   font-family: 'Permanent Marker', cursive;
   font-size: 1.3rem;
@@ -16,7 +17,8 @@
 .container-menu .item-menu {
   display: flex;
   text-align: center;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
 }
 .container-menu .item-menu a {
   margin-top: 20px;
@@ -25,6 +27,8 @@
   font-size: 1.2rem;
   font-weight: bold;
   transition: color 0.9s;
+  margin-right: 10px;
+  outline: none;
 }
 .container-menu .item-menu a:hover {
   color:#D8DCD6;

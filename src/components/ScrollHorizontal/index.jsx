@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.css'
+import './scroll.css'
 
 const ScrollHorizontal = props => <div className="wrapper">{props.children}</div>
 

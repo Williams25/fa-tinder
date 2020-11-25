@@ -1,9 +1,9 @@
 import React from 'react'
-import './index.css'
+import './landing.css'
 
 const Landing = props => {
   return (
-    <div className="container">
+    <div className="container-landing">
       <div className="title">
         <span>Fa❤Tinder</span>
       </div>

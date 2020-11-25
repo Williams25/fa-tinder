@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import './index.css'
+import Usuario from '../../services/usuario'
+import './cadastrar.css'
 
 const CadastrarUsuario = props => {
 
@@ -8,15 +9,17 @@ const CadastrarUsuario = props => {
   // eslint-disable-next-line
   const [images, setImages] = useState([])
   const [previewImages, setPreviewImages] = useState([])
-  
+
+  const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
-  const [senha,setSenha] = useState('')
-  const [dataNasc,setDataNasc] = useState('')
+  const [senha, setSenha] = useState('')
+  const [dataNasc, setDataNasc] = useState('')
   const [cidade, setCidade] = useState('')
   const [graduacao, setGraduacao] = useState('')
   const [faculdade, setFaculdade] = useState('')
   const [whatsapp, setWhatsapp] = useState('')
-  
+  const [descricao, setDescricao] = useState('')
+  const [erro, setErro] = useState('')
 
   const handleSelectImages = (event) => {
     if (!event.target.files) return
@@ -35,16 +38,23 @@ const CadastrarUsuario = props => {
   const preventFormSubmit = e => e.preventDefault()
 
   const cadastrar = () => {
-    console.log({
-      email,
-      senha,
-      dataNasc,
-      cidade,
-      graduacao,
-      faculdade,
-      whatsapp,
-      images
-    })
+    const data = new FormData()
+    data.append('nome', nome)
+    data.append('email', email)
+    data.append('senha', senha)
+    data.append('dataNascimento', dataNasc)
+    data.append('cidade', cidade)
+    data.append('graduacao', graduacao)
+    data.append('faculdade', faculdade)
+    data.append('whatsapp', whatsapp)
+    data.append('descricao', descricao)
+    data.append('imagens', images[0])
+    console.log(data)
+    Usuario.cadastrar(data).then(res => {
+      const { message } = res.data
+      if (message === 'Cadastrado') return setErro(message)
+      setErro('Erro tente novamente')
+    }).catch(err => setErro('Erro tente novamente'))
   }
 
   return (
@@ -54,53 +64,66 @@ const CadastrarUsuario = props => {
         {
           !nextItemForm ? (
             <>
+              <label htmlFor="Nome">Nome</label>
+              <input type="text" id="Nome"
+                value={nome}
+                onChange={e => setNome(e.target.value)}
+              />
               <label htmlFor="E-mail">E-mail</label>
-              <input type="text" id="E-mail"
+              <input type="email" id="E-mail"
                 value={email}
-                onChange={e=>setEmail(e.target.value)}
+                onChange={e => setEmail(e.target.value)}
               />
               <label htmlFor="Senha">Senha</label>
-              <input type="password" id="Senha" 
+              <input type="password" id="Senha"
                 value={senha}
-                onChange={e=>setSenha(e.target.value)}
+                onChange={e => setSenha(e.target.value)}
               />
 
               <label htmlFor="nascimento">Data nascimento</label>
-              <input type="date" id="nascimento" 
+              <input type="date" id="nascimento"
                 value={dataNasc}
-                onChange={e=>setDataNasc(e.target.value)}
+                onChange={e => setDataNasc(e.target.value)}
               />
 
               <label htmlFor="Cidade">Cidade</label>
-              <input type="text" id="Cidade" 
+              <input type="text" id="Cidade"
                 value={cidade}
-                onChange={e=>setCidade(e.target.value)}
+                onChange={e => setCidade(e.target.value)}
               />
+
+              <label htmlFor="des">Descrição</label>
+              <textarea name="" id="des"
+                value={descricao}
+                onChange={e => setDescricao(e.target.value)}
+              >
+
+              </textarea>
             </>
           )
             :
             (
               <>
                 <label htmlFor="Graduacao">Graduação</label>
-                <input type="text" id="Graduacao" 
+                <input type="text" id="Graduacao"
                   value={graduacao}
-                  onChange={e=>setGraduacao(e.target.value)}
+                  onChange={e => setGraduacao(e.target.value)}
                 />
 
                 <label htmlFor="Faculdade">Faculdade</label>
-                <input type="text" id="Faculdade" 
+                <input type="text" id="Faculdade"
                   value={faculdade}
-                  onChange={e=>setFaculdade(e.target.value)}
+                  onChange={e => setFaculdade(e.target.value)}
                 />
 
                 <label htmlFor="whatsapp">Whatsapp</label>
-                <input type="text" id="whatsapp" 
+                <input type="text" id="whatsapp"
                   value={whatsapp}
                   onChange={(e) => setWhatsapp(e.target.value)}
                 />
 
                 <label htmlFor="images">Clique para inserir foto de perfil</label>
-        
+
                 <div className="images-container">
                   {
                     previewImages.map(image => {
@@ -115,7 +138,11 @@ const CadastrarUsuario = props => {
               </>
             )
         }
-
+        <div className="erro">
+          <span>
+            {erro}
+          </span>
+        </div>
         <div className="button-content">
           {
             !nextItemForm ?

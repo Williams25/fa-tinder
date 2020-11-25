@@ -1,0 +1,19 @@
+.container-img {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container img {
+  max-width: 80%;
+  height: 250px;
+}
+.contato {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.contato span{
+  margin-left: 4px;
+}

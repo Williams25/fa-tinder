@@ -1,18 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-
-.container {
+.container-landing {
   display: flex;
   justify-content: space-between;
   text-align: center;
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100vw;
-  height: 100vh;
+  width: 100vw !important;
+  height: 100vh !important;
   background-color: #FA4224;
 }
 
-.container .title {
+.container-landing .title {
   display: flex;
   justify-content: space-between;
   text-align: center;
@@ -22,18 +21,18 @@
   width: 100vw;
 }
 
-.container .title span {
+.container-landing .title span {
   color: #fff;
   font-family: 'Permanent Marker', cursive;
   font-size: 4rem;
 }
 
 @media (min-width: 852px) {
-  .container .title {
+  .container-landing .title {
     padding: 15px;
     width: 48vw;
   }
-  .container .title span {
+  .container-landing .title span {
     color: #fff;
     font-family: 'Permanent Marker', cursive;
     font-size: 10rem;

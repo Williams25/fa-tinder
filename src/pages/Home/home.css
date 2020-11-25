@@ -4,32 +4,35 @@ body {
 
 .container-home {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  width: 80%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .container-profile {
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
-
-.profile {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  text-align: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  width: 100%;
+
 }
 
 .profile .img-profile {
-  margin: 2rem;
+  width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  margin: 2rem;
 }
 
 .profile .img-profile .info {
@@ -40,12 +43,12 @@ body {
 }
 
 .profile .img-profile img {
-  width: 50%;
-  height: 100%;
+  width: 180px;
+  height: 180px;
   border-radius: 5px;
 }
 
-.profile .img-profile .info button {
+/* .profile .img-profile .info button {
   width: 8rem;
   height: 2rem;
   outline: none;
@@ -58,28 +61,14 @@ body {
   margin: 2px;
   cursor: pointer;
   transition: background-color 0.8s;
-}
-.busca {
-  display: flex;
-  flex-direction: row;
-}
-.busca input {
-  width: 100%;
-  text-align: center;
-  border: none;
-  border-bottom: 1px solid black;
-  outline: none;
-}
+} */
 
-.busca button {
-  height: 30px;
-  outline: none;
-  background-color: #FD5956;
-  color: #fff;
-  font-size: 1rem;
+.subtitle {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.subtitle span {
   font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  margin: 2px;
-  cursor: pointer;
+  font-size: 1.4rem;
 }
